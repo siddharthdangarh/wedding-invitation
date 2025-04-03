@@ -86,7 +86,7 @@ export default function Home() {
               <div>
                 <h3 className="text-xl font-bold">Procession</h3>
                 <p className="text-lg">June 5, 2025 | 08:00 PM - 10:30 PM</p>
-                <p className="mt-2">A grand procession, with music, dance performances, and celebration of the couple's journey.</p>
+                <p className="mt-2">A grand procession, with music, dance performances, and celebration of the couple&apos;s journey.</p>
               </div>
             </div>
 
@@ -108,7 +108,7 @@ export default function Home() {
               <div>
                 <h3 className="text-xl font-bold">Sangeet & DJ Night</h3>
                 <p className="text-lg">June 6, 2025 | 08:00 PM - 10:30 PM</p>
-                <p className="mt-2">A night filled with music, dance performances, and celebration of the couple's journey.</p>
+                <p className="mt-2">A night filled with music, dance performances, and celebration of the couple&apos;s journey.</p>
               </div>
             </div>
 
@@ -221,14 +221,14 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-3">Bride's Family</h3>
+              <h3 className="text-xl font-bold mb-3">Bride&apos;s Family</h3>
               <p>Mr. & Mrs. Gupta</p>
               <p><a href="tel:+911111111111" className="text-red-700 underline">+91 11111-11111</a></p>
               <p><a href="mailto:wedding@gupta.com" className="text-red-700 underline">wedding@gupta.com</a></p>
             </div>
             
             <div>
-              <h3 className="text-xl font-bold mb-3">Groom's Family</h3>
+              <h3 className="text-xl font-bold mb-3">Groom&apos;s Family</h3>
               <p>Mr. & Mrs. Dangarh</p>
               <p><a href="tel:+911111111111" className="text-red-700 underline">+91 11111-11111</a></p>
               <p><a href="mailto:wedding@dangarh.com" className="text-red-700 underline">wedding@dangarh.com</a></p>
