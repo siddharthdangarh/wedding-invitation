@@ -1,246 +1,293 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Clock, MapPin, Phone, Mail, CalendarDays, Camera, Heart, Feather, Users, Hotel } from 'lucide-react'; // Example icons, you might need to install lucide-react
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen font-['Cormorant_Garamond',serif] text-amber-900">
-      {/* Animated background */}
-      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-rose-50 to-amber-50 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/paisley-pattern.svg')] bg-repeat opacity-10 animate-float"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/mandala.svg')] bg-no-repeat bg-[length:300px_300px] bg-right-top opacity-20 animate-spin-slow"></div>
-        <div className="absolute bottom-0 right-0 w-full h-full bg-[url('/lotus.svg')] bg-no-repeat bg-[length:250px_250px] bg-left-bottom opacity-15 animate-pulse-slow"></div>
+    <div className="relative min-h-screen font-['Cormorant_Garamond',serif] text-amber-950 bg-gradient-to-br from-rose-50 via-amber-50 to-rose-100">
+      {/* Enhanced Animated background - Subtle adjustments */}
+      {/* Note: Replaced background images with placeholders. Find suitable public domain/CC0 seamless patterns. */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://example.com/placeholder-paisley.svg')] bg-repeat opacity-[0.07] animate-float"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[url('https://example.com/placeholder-mandala.svg')] bg-no-repeat bg-[length:400px_400px] bg-right-top opacity-15 animate-spin-slow mix-blend-multiply"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[url('https://example.com/placeholder-lotus.svg')] bg-no-repeat bg-[length:350px_350px] bg-left-bottom opacity-10 animate-pulse-slow mix-blend-multiply"></div>
       </div>
 
+      {/* Navigation (Optional - Example) */}
+      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div className="container mx-auto px-6 py-3 flex justify-center space-x-6 font-['Aref_Ruqaa',serif] text-amber-800">
+          <Link href="#events" className="hover:text-red-700 transition-colors">Events</Link>
+          <Link href="#story" className="hover:text-red-700 transition-colors">Our Story</Link>
+          <Link href="#gallery" className="hover:text-red-700 transition-colors">Gallery</Link>
+          <Link href="#contact" className="hover:text-red-700 transition-colors">Contact</Link>
+        </div>
+      </nav>
+
       {/* Main content */}
-      <main className="container mx-auto px-6 py-12 max-w-4xl">
-        {/* Header with couple names */}
-        <header className="text-center mb-10 relative">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-40 h-12 bg-[url('/floral-divider.svg')] bg-contain bg-no-repeat opacity-70"></div>
-          <h1 className="font-['Aref_Ruqaa',serif] text-4xl md:text-6xl text-red-800 mt-10">Siddharth & Pooja</h1>
-          <p className="mt-4 text-xl md:text-2xl italic">Request the honor of your presence at their wedding</p>
-          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 h-12 bg-[url('/floral-divider.svg')] bg-contain bg-no-repeat opacity-70 rotate-180"></div>
+      <main className="container mx-auto px-4 sm:px-6 py-16 max-w-5xl relative z-10">
+
+        {/* Header */}
+        <header className="text-center mb-16 relative pt-10 pb-8">
+           {/* Note: Replaced divider with a generic public domain ornament */}
+           <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-48 h-16">
+             <Image src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Vector_ornamental_divider.svg" alt="" layout="fill" objectFit="contain" className="opacity-70" aria-hidden="true" />
+           </div>
+          <h1 className="font-['Aref_Ruqaa',serif] text-5xl md:text-7xl text-red-800 drop-shadow-sm">Siddharth & Pooja</h1>
+          <p className="mt-5 text-xl md:text-2xl italic text-amber-800">Invite you to celebrate their wedding</p>
+           {/* Note: Replaced divider with a generic public domain ornament */}
+           <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48 h-16 transform rotate-180">
+             <Image src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Vector_ornamental_divider.svg" alt="" layout="fill" objectFit="contain" className="opacity-70" aria-hidden="true" />
+           </div>
         </header>
 
         {/* Ornate divider */}
-        <div className="flex justify-center mb-12">
-          <Image 
-            src="/ornate-divider.svg" 
-            alt="Decorative divider" 
-            width={200} 
-            height={30}
+        {/* Note: Replaced divider with a generic public domain ornament */}
+        <div className="flex justify-center my-12">
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Ornate_divider.svg/512px-Ornate_divider.svg.png"
+            alt="Decorative divider"
+            width={250}
+            height={40}
             className="opacity-80"
           />
         </div>
 
         {/* Main event details */}
-        <section className="bg-white/70 backdrop-blur-sm border border-amber-200 rounded-lg p-8 mb-12 shadow-lg text-center">
-          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-6 text-red-700">Wedding Celebration</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-3">
-              <h3 className="text-xl font-bold">Wedding Date</h3>
-              <p className="text-2xl font-['Aref_Ruqaa',serif]">Saturday, June 7, 2025</p>
-              <p>Auspicious Time: 09:00 AM</p>
+        <section id="wedding-details" className="bg-gradient-to-br from-white/80 to-rose-50/70 backdrop-blur-md border border-amber-200 rounded-xl p-8 md:p-10 mb-16 shadow-lg text-center relative overflow-hidden">
+           <div className="absolute top-2 right-2 text-red-700 opacity-50"><Heart size={24} /></div>
+          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700">The Wedding Day</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-3 border-r-0 md:border-r md:border-amber-200 md:pr-8">
+               <div className="flex justify-center items-center gap-2 text-xl font-bold text-amber-900">
+                 <CalendarDays size={20} className="text-red-700" />
+                 <h3>Date & Time</h3>
+               </div>
+              <p className="text-2xl font-['Aref_Ruqaa',serif] text-red-800">Saturday, June 7, 2025</p>
+               <div className="flex justify-center items-center gap-1 text-amber-800">
+                 <Clock size={16} />
+                 <span>Auspicious Time: 09:00 AM</span>
+               </div>
             </div>
-            
+
             <div className="space-y-3">
-              <h3 className="text-xl font-bold">Venue</h3>
-              <p className="text-lg">Aashirvaad Resort</p>
-              <p>Kanha Manglik Road</p>
-              <p>Behind Krashi Upaj Mandi, Shamgarh, MP</p>
+               <div className="flex justify-center items-center gap-2 text-xl font-bold text-amber-900">
+                 <MapPin size={20} className="text-red-700" />
+                 <h3>Venue</h3>
+               </div>
+              <p className="text-lg font-semibold">Aashirvaad Resort</p>
+              <address className="text-base text-amber-800 not-italic">
+                Kanha Manglik Road<br/>
+                Behind Krashi Upaj Mandi, Shamgarh, MP
+              </address>
+               {/* Optional: Add a map link */}
+               {/* <a href="#" className="inline-block mt-2 text-sm text-red-700 underline hover:text-red-900 transition-colors">View Map</a> */}
             </div>
           </div>
         </section>
 
         {/* Events timeline */}
-        <section className="bg-white/70 backdrop-blur-sm border border-amber-200 rounded-lg p-8 mb-12 shadow-lg">
-          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700 text-center">Wedding Events</h2>
-          
-          <div className="space-y-10">
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-24 h-24 rounded-full bg-amber-100 flex items-center justify-center shrink-0 border-2 border-amber-300">
-                <Image src="/mehendi.svg" alt="Mehendi ceremony icon" width={60} height={60} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">Mehendi Ceremony</h3>
-                <p className="text-lg">June 4, 2025 | 02:00 PM - 08:00 PM</p>
-                <p className="mt-2">Join us for an evening of beautiful henna applications, music, and celebration.</p>
-              </div>
-            </div>
+        <section id="events" className="mb-16">
+          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-10 text-red-700 text-center">Schedule of Events</h2>
 
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-24 h-24 rounded-full bg-amber-100 flex items-center justify-center shrink-0 border-2 border-amber-300">
-                <Image src="/mataji_poojan.svg" alt="Mataji Poojan icon" width={60} height={60} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">Mataji Poojan</h3>
-                <p className="text-lg">June 5, 2025 | 09:00 AM - 11:00 AM</p>
-                <p className="mt-2">A special ceremony to seek blessings from the family deity.</p>
-              </div>
-            </div>
+          <div className="relative max-w-3xl mx-auto">
+            {/* The Timeline Line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-200 via-amber-300 to-amber-200 transform -translate-x-1/2 hidden md:block"></div>
 
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-24 h-24 rounded-full bg-amber-100 flex items-center justify-center shrink-0 border-2 border-amber-300">
-                <Image src="/procession.svg" alt="Procession ceremony icon" width={60} height={60} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">Procession</h3>
-                <p className="text-lg">June 5, 2025 | 08:00 PM - 10:30 PM</p>
-                <p className="mt-2">A grand procession, with music, dance performances, and celebration of the couple&apos;s journey.</p>
-              </div>
-            </div>
+            {/* Timeline Items */}
+            {/* Note: Replaced local icons with placeholder icons from Iconify. Design/replace as needed. */}
+            {[
+              { icon: "https://api.iconify.design/mdi:hand-heart.svg", alt: "Mehendi", title: "Mehendi Ceremony", date: "June 4, 2025 | 02:00 PM - 08:00 PM", desc: "An evening of beautiful henna, music, and celebration." },
+              { icon: "https://api.iconify.design/mdi:hands-pray.svg", alt: "Mataji Poojan", title: "Mataji Poojan", date: "June 5, 2025 | 09:00 AM - 11:00 AM", desc: "Seeking blessings from the family deity." },
+              { icon: "https://api.iconify.design/mdi:human-male-female-dance.svg", alt: "Procession", title: "Procession", date: "June 5, 2025 | 08:00 PM - 10:30 PM", desc: "A grand procession with music, dance, and joy." },
+              { icon: "https://api.iconify.design/mdi:flower-tulip.svg", alt: "Haldi", title: "Haldi Ceremony", date: "June 6, 2025 | 02:00 PM - 05:00 PM", desc: "A joyful ceremony with turmeric paste, flowers, and fun." },
+              { icon: "https://api.iconify.design/mdi:music-note.svg", alt: "Sangeet", title: "Sangeet & DJ Night", date: "June 6, 2025 | 08:00 PM - 10:30 PM", desc: "A night of music, dance performances, and celebration." },
+              { icon: "https://api.iconify.design/mdi:horse-human.svg", alt: "Baraat", title: "Baraat", date: "June 7, 2025 | 10:30 AM - 12:30 PM", desc: "The groom&apos;s arrival with music and dancing." },
+              { icon: "https://api.iconify.design/mdi:gift.svg", alt: "Mayra", title: "Mayra / Mamera", date: "June 7, 2025 | 02:00 PM - 03:00 PM", desc: "Ceremony for the maternal families." },
+              { icon: "https://api.iconify.design/mdi:food-fork-drink.svg", alt: "Reception", title: "Reception", date: "June 7, 2025 | 7:00 PM Onwards", desc: "Celebrating the newlyweds with dinner and entertainment." }, // Updated Date
+            ].map((event, index) => (
+              <div key={index} className={`mb-12 flex md:items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} flex-col md:flex-row`}>
+                {/* Content Block */}
+                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pl-8 lg:pl-14' : 'md:pr-8 lg:pr-14'}`}>
+                  <div className="bg-white/70 backdrop-blur-sm border border-amber-100 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 className="text-xl font-bold text-red-800 mb-2">{event.title}</h3>
+                    <p className="text-sm font-semibold text-amber-700 mb-3">{event.date}</p>
+                    <p className="text-amber-900">{event.desc}</p>
+                  </div>
+                </div>
 
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-24 h-24 rounded-full bg-amber-100 flex items-center justify-center shrink-0 border-2 border-amber-300">
-                <Image src="/haldi.svg" alt="Haldi ceremony icon" width={60} height={60} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">Haldi</h3>
-                <p className="text-lg">June 6, 2025 | 02:00 PM - 05:00 PM</p>
-                <p className="mt-2">Fun and joyful haldi ceremony, with music, dance performances, and lots of flowers and colors</p>
-              </div>
-            </div>
-            
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-24 h-24 rounded-full bg-amber-100 flex items-center justify-center shrink-0 border-2 border-amber-300">
-                <Image src="/sangeet.svg" alt="Sangeet ceremony icon" width={60} height={60} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">Sangeet & DJ Night</h3>
-                <p className="text-lg">June 6, 2025 | 08:00 PM - 10:30 PM</p>
-                <p className="mt-2">A night filled with music, dance performances, and celebration of the couple&apos;s journey.</p>
-              </div>
-            </div>
+                {/* Icon & Connector */}
+                <div className="w-full md:w-2/12 flex justify-center items-center my-4 md:my-0 relative">
+                   {/* Connector line for small screens */}
+                   <div className="md:hidden h-8 w-0.5 bg-amber-200 absolute -top-8 left-1/2 -translate-x-1/2"></div>
+                   <div className="md:hidden h-8 w-0.5 bg-amber-200 absolute -bottom-8 left-1/2 -translate-x-1/2"></div>
 
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-24 h-24 rounded-full bg-amber-100 flex items-center justify-center shrink-0 border-2 border-amber-300">
-                <Image src="/baraat.svg" alt="Baraat ceremony icon" width={60} height={60} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">Baraat</h3>
-                <p className="text-lg">June 7, 2025 | 10:30 AM - 12:30 PM</p>
-                <p className="mt-2">Groom reaching the venue with DJ on wheels, to take bride home.</p>
-              </div>
-            </div>
+                  <div className="z-10 w-24 h-24 rounded-full bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center shrink-0 border-2 border-amber-300 shadow-lg">
+                    {/* Ensure the public SVG/image works well here */}
+                    <Image src={event.icon} alt={event.alt} width={55} height={55} className="opacity-80" />
+                  </div>
+                   {/* Horizontal line for large screens */}
+                   <div className={`hidden md:block absolute w-full h-0.5 bg-gradient-to-r from-transparent via-amber-300 to-amber-300 ${index % 2 === 0 ? 'left-full -translate-x-full' : 'right-full translate-x-full' }`}></div>
+                   <div className={`hidden md:block absolute w-full h-0.5 bg-gradient-to-l from-transparent via-amber-300 to-amber-300 ${index % 2 === 0 ? 'left-1/2' : 'right-1/2' }`}></div>
+                </div>
 
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-24 h-24 rounded-full bg-amber-100 flex items-center justify-center shrink-0 border-2 border-amber-300">
-                <Image src="/mayra.svg" alt="Mayra ceremony icon" width={60} height={60} />
+                {/* Spacer for alignment */}
+                <div className={`hidden md:block w-5/12 ${index % 2 === 0 ? 'pr-8 lg:pr-14' : 'pl-8 lg:pl-14'}`}></div>
               </div>
-              <div>
-                <h3 className="text-xl font-bold">Mayra / Mamera</h3>
-                <p className="text-lg">June 7, 2025 | 02:00 PM - 03:00 PM</p>
-                <p className="mt-2">Ceremony for both maternal families of the bride and groom.</p>
-              </div>
-            </div>
-            
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-24 h-24 rounded-full bg-amber-100 flex items-center justify-center shrink-0 border-2 border-amber-300">
-                <Image src="/reception.svg" alt="Reception icon" width={60} height={60} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">Reception</h3>
-                <p className="text-lg">November 12, 2023 | 7:00 PM - 11:00 PM</p>
-                <p className="mt-2">An elegant reception celebrating the newlyweds with dinner and entertainment.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
+        {/* Ornate divider */}
+        {/* Note: Replaced divider with a generic public domain ornament */}
+        <div className="flex justify-center my-12">
+           <Image
+             src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Ornate_divider.svg/512px-Ornate_divider.svg.png"
+             alt="Decorative divider"
+             width={250}
+             height={40}
+             className="opacity-80"
+           />
+        </div>
+
         {/* Our Story section */}
-        <section className="bg-white/70 backdrop-blur-sm border border-amber-200 rounded-lg p-8 mb-12 shadow-lg">
-          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-6 text-red-700 text-center">Our Story</h2>
-          
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="w-full md:w-1/3">
-              <div className="rounded-lg overflow-hidden border-4 border-amber-100 shadow-md">
-                <Image src="/couple-photo.jpg" alt="Siddharth and Pooja" width={400} height={500} className="w-full h-auto" />
+        <section id="story" className="bg-white/70 backdrop-blur-sm border border-amber-200 rounded-xl p-8 md:p-10 mb-16 shadow-lg relative overflow-hidden">
+           <div className="absolute bottom-2 left-2 text-red-700 opacity-50 transform rotate-[-15deg]"><Feather size={24} /></div>
+          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700 text-center">Our Story</h2>
+
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+            <div className="w-full lg:w-2/5">
+              <div className="rounded-lg overflow-hidden border-4 border-amber-100 shadow-md aspect-[4/5] relative group">
+                 {/* Note: Replaced couple photo with a placeholder from Pexels */}
+                <Image src="https://images.pexels.com/photos/1024989/pexels-photo-1024989.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&dpr=1" alt="Siddharth and Pooja Placeholder" layout="fill" objectFit="cover" className="transition-transform duration-500 group-hover:scale-105" />
               </div>
             </div>
-            
-            <div className="w-full md:w-2/3">
-              <p className="text-lg mb-4">
-                Our paths first crossed during college where Siddharth was studying engineering and Pooja was pursuing architecture. 
-                What began as a friendship over shared lunch breaks soon blossomed into a beautiful love story.
+
+            <div className="w-full lg:w-3/5 text-lg text-amber-900 space-y-5 leading-relaxed">
+              <p>
+                Our journey began amidst the bustling halls of college, where Siddharth navigated the complexities of engineering and Pooja shaped worlds through architecture.
+                What started with shared lunch breaks and easy laughter soon blossomed into something deeper, a connection woven with shared dreams and mutual admiration.
               </p>
-              <p className="text-lg">
-                After 5 years of growing together, learning from each other, and creating wonderful memories, 
-                we are excited to begin this new chapter of our lives. We are thrilled to celebrate our union with our beloved family and friends.
+              <p>
+                Five years have flown by, filled with growth, learning, and countless cherished memories. Now, standing on the threshold of a new chapter, we&apos;re filled with excitement and gratitude.
+              </p>
+              <p className="font-semibold text-red-800 italic">
+                We can&apos;t wait to celebrate this milestone with you, our beloved family and friends, who have supported us along the way.
               </p>
             </div>
           </div>
         </section>
 
         {/* Gallery section */}
-        <section className="bg-white/70 backdrop-blur-sm border border-amber-200 rounded-lg p-8 mb-12 shadow-lg">
-          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-6 text-red-700 text-center">Gallery</h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-              <div key={num} className="aspect-square overflow-hidden rounded-lg border-2 border-amber-100 shadow-sm hover:scale-105 transition-transform">
-                <Image 
-                  src={`/gallery-${num}.jpg`} 
-                  alt={`Couple photo ${num}`} 
-                  width={300} 
-                  height={300}
-                  className="w-full h-full object-cover"
+        <section id="gallery" className="mb-16">
+          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700 text-center">Moments We Cherish</h2>
+
+           {/* Note: Replaced gallery images with placeholders from Pexels */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {[
+                "https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+                "https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+                "https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+                "https://images.pexels.com/photos/13129951/pexels-photo-13129951.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+                "https://images.pexels.com/photos/3014815/pexels-photo-3014815.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+                "https://images.pexels.com/photos/1488319/pexels-photo-1488319.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+                "https://images.pexels.com/photos/1444416/pexels-photo-1444416.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+                "https://images.pexels.com/photos/916344/pexels-photo-916344.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+            ].map((src, index) => (
+              <div key={index} className="aspect-square overflow-hidden rounded-lg border-2 border-amber-100/50 shadow-sm group relative cursor-pointer hover:shadow-xl transition-all duration-300">
+                <Image
+                  src={src}
+                  alt={`Gallery image ${index + 1} placeholder`}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-transform duration-500 group-hover:scale-110"
                 />
+                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                   <Camera size={32} className="text-white/80" />
+                 </div>
               </div>
+            ))}
+          </div>
+           {/* Note: Add a lightbox library for a better gallery experience */}
+           <p className="text-center mt-6 text-sm text-amber-700 italic">Click to view (Functionality requires a gallery library)</p>
+        </section>
+
+        {/* Accommodation info */}
+        <section id="accommodation" className="bg-white/70 backdrop-blur-sm border border-amber-200 rounded-xl p-8 md:p-10 mb-16 shadow-lg">
+          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700 text-center">Guest Accommodation</h2>
+
+          <p className="text-lg text-center text-amber-900 mb-8">
+            For our cherished guests travelling from afar, we&apos;ve arranged special rates at nearby hotels. Please mention our wedding when booking.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {[
+              { name: "Sanghvi Palace", distance: "0.1 km from venue", phone: "+91 11111-11111", tel: "+911111111111" },
+              { name: "Tanvi Palace", distance: "2 km from venue", phone: "+91 11111-11111", tel: "+911111111111" },
+            ].map((hotel) => (
+            <div key={hotel.name} className="border border-amber-100 rounded-lg p-5 shadow-sm bg-white/50 hover:bg-white/80 transition-colors duration-300 flex flex-col items-center text-center">
+               <Hotel size={24} className="text-red-700 mb-3" />
+              <h3 className="text-xl font-bold text-amber-950">{hotel.name}</h3>
+              <p className="text-sm text-amber-700 mb-3">{hotel.distance}</p>
+               <div className="flex items-center gap-2">
+                 <Phone size={16} className="text-red-700" />
+                 <a href={`tel:${hotel.tel}`} className="text-red-700 underline hover:text-red-900 transition-colors">{hotel.phone}</a>
+               </div>
+            </div>
             ))}
           </div>
         </section>
 
-        {/* Accommodation info */}
-        <section className="bg-white/70 backdrop-blur-sm border border-amber-200 rounded-lg p-8 mb-12 shadow-lg">
-          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-6 text-red-700 text-center">Accommodation</h2>
-          
-          <div className="space-y-6">
-            <p className="text-lg text-center">
-              For our out-of-town guests, we have arranged special rates at the following hotels:
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="border border-amber-100 rounded-lg p-4 shadow-sm">
-                <h3 className="text-xl font-bold">Sanghvi Palace</h3>
-                <p>0.1 km from venue</p>
-                <p className="mt-2"><a href="tel:+91 1111111111" className="text-red-700 underline">+91 11111-11111</a></p>
-              </div>
-              
-              <div className="border border-amber-100 rounded-lg p-4 shadow-sm">
-                <h3 className="text-xl font-bold">Tanvi Palace</h3>
-                <p>2 km from venue</p>
-                <p className="mt-2"><a href="tel:+91 1111111111" className="text-red-700 underline">+91 11111-11111</a></p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Contact section */}
-        <section className="bg-white/70 backdrop-blur-sm border border-amber-200 rounded-lg p-8 mb-12 shadow-lg">
-          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-6 text-red-700 text-center">Contact</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-3">Bride&apos;s Family</h3>
-              <p>Mr. & Mrs. Gupta</p>
-              <p><a href="tel:+911111111111" className="text-red-700 underline">+91 11111-11111</a></p>
-              <p><a href="mailto:wedding@gupta.com" className="text-red-700 underline">wedding@gupta.com</a></p>
+        <section id="contact" className="bg-white/70 backdrop-blur-sm border border-amber-200 rounded-xl p-8 md:p-10 mb-16 shadow-lg">
+          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700 text-center">With Blessings From</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="text-center border border-amber-100 rounded-lg p-6 shadow-sm bg-white/50">
+               <Users size={24} className="text-red-700 mb-3 mx-auto" />
+              <h3 className="text-xl font-bold mb-3 text-amber-950">Bride&apos;s Family</h3>
+              <p className="text-lg">Mr. & Mrs. Gupta</p>
+              <div className="mt-3 space-y-1">
+                <p className="flex items-center justify-center gap-2">
+                  <Phone size={16} className="text-red-700"/>
+                  <a href="tel:+911111111111" className="text-red-700 underline hover:text-red-900 transition-colors">+91 11111-11111</a>
+                </p>
+                <p className="flex items-center justify-center gap-2">
+                  <Mail size={16} className="text-red-700"/>
+                  <a href="mailto:wedding@gupta.com" className="text-red-700 underline hover:text-red-900 transition-colors">wedding@gupta.com</a>
+                </p>
+              </div>
             </div>
-            
-            <div>
-              <h3 className="text-xl font-bold mb-3">Groom&apos;s Family</h3>
-              <p>Mr. & Mrs. Dangarh</p>
-              <p><a href="tel:+911111111111" className="text-red-700 underline">+91 11111-11111</a></p>
-              <p><a href="mailto:wedding@dangarh.com" className="text-red-700 underline">wedding@dangarh.com</a></p>
+
+            <div className="text-center border border-amber-100 rounded-lg p-6 shadow-sm bg-white/50">
+               <Users size={24} className="text-red-700 mb-3 mx-auto" />
+              <h3 className="text-xl font-bold mb-3 text-amber-950">Groom&apos;s Family</h3>
+              <p className="text-lg">Mr. & Mrs. Dangarh</p>
+              <div className="mt-3 space-y-1">
+                <p className="flex items-center justify-center gap-2">
+                  <Phone size={16} className="text-red-700"/>
+                  <a href="tel:+911111111111" className="text-red-700 underline hover:text-red-900 transition-colors">+91 11111-11111</a>
+                </p>
+                <p className="flex items-center justify-center gap-2">
+                  <Mail size={16} className="text-red-700"/>
+                  <a href="mailto:wedding@dangarh.com" className="text-red-700 underline hover:text-red-900 transition-colors">wedding@dangarh.com</a>
+                </p>
+              </div>
             </div>
           </div>
+           <p className="text-center mt-8 text-amber-800">For any queries, please feel free to reach out.</p>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="bg-amber-800 text-amber-50 py-6 text-center">
-        <p className="mb-2">#PoojaWedsSiddharth</p>
-        <p className="text-sm">With blessings from our families</p>
+      <footer className="bg-gradient-to-t from-amber-800 to-amber-700 text-amber-50 py-8 text-center relative mt-16">
+         {/* Note: Replaced divider with a generic public domain ornament */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-8">
+           <Image src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Vector_ornamental_divider.svg" alt="" layout="fill" objectFit="contain" className="opacity-50" aria-hidden="true" />
+        </div>
+        <p className="mb-3 text-lg font-['Aref_Ruqaa',serif] tracking-wider">#PoojaWedsSiddharth</p>
+        <p className="text-sm opacity-80">We look forward to celebrating with you!</p>
+        <p className="text-xs mt-4 opacity-60">&copy; {new Date().getFullYear()} Siddharth & Pooja. All rights reserved.</p>
       </footer>
     </div>
   );
