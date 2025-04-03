@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d out",
+    "static": "next build && touch ./out/.nojekyll && echo 'wedding.siddharthdangarh.com' > ./out/CNAME"
   },
   "dependencies": {
     "next": "15.2.4",
