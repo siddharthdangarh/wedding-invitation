@@ -5,6 +5,7 @@ const nextConfig = {
     unoptimized: true, // Required for static exports if using next/image
   },
   trailingSlash: true, // Ensures proper routing for GitHub Pages
+  assetPrefix: '/', // Ensures CSS and JS files load correctly
 };
   
 export default nextConfig;
