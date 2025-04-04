@@ -25,24 +25,49 @@ export default function Home() {
       <main className="container mx-auto px-4 sm:px-6 py-16 max-w-5xl relative">
 
         {/* Header */}
-        <header className="text-center mb-16 relative pt-10 pb-8">
-           {/* Note: Replaced divider with a generic public domain ornament */}
-           <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-48 h-16">
-             <Image src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Vector_ornamental_divider.svg" alt="" layout="fill" objectFit="contain" className="opacity-70" aria-hidden="true" />
-           </div>
-          <h1 className="font-['Aref_Ruqaa',serif] text-5xl md:text-7xl text-red-800 drop-shadow-sm">Siddharth & Pooja</h1>
-          <p className="mt-5 text-xl md:text-2xl italic text-amber-800">Invite you to celebrate their wedding</p>
-           {/* Note: Replaced divider with a generic public domain ornament */}
-           <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48 h-16 transform rotate-180">
-             <Image src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Vector_ornamental_divider.svg" alt="" layout="fill" objectFit="contain" className="opacity-70" aria-hidden="true" />
-           </div>
+        <header className="text-center mb-16 relative pt-16 pb-12">
+          {/* Decorative corner flourishes */}
+          <div className="absolute top-0 left-0 w-24 h-24 border-l-2 border-t-2 border-amber-700/30 rounded-tl-lg"></div>
+          <div className="absolute top-0 right-0 w-24 h-24 border-r-2 border-t-2 border-amber-700/30 rounded-tr-lg"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 border-l-2 border-b-2 border-amber-700/30 rounded-bl-lg"></div>
+          <div className="absolute bottom-0 right-0 w-24 h-24 border-r-2 border-b-2 border-amber-700/30 rounded-br-lg"></div>
+
+          {/* Names with enhanced styling and animation */}
+          <div className="space-y-6 relative z-10">
+            <h1 className="font-['Aref_Ruqaa',serif] text-5xl md:text-5xl text-red-800 tracking-wider">
+              <span className="block hover:scale-105 transition-transform duration-300">Siddharth</span>
+              <span className="inline-block mx-4 text-4xl md:text-6xl text-amber-700">&</span>
+              <span className="block hover:scale-105 transition-transform duration-300">Pooja</span>
+            </h1>
+
+            {/* Decorative line */}
+            <div className="flex items-center justify-center gap-4">
+              <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-amber-700"></div>
+              <Image
+                src="/images/small-flower.png"
+                alt=""
+                width={80}
+                height={80}
+                className="opacity-70"
+              />
+              <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-amber-700"></div>
+            </div>
+
+            {/* Invitation text with enhanced typography */}
+            <p className="mt-8 text-2xl md:text-3xl italic text-amber-800 font-light tracking-wide">
+              Request the honor of your presence
+              <span className="block mt-2 text-xl md:text-2xl text-amber-700">
+                as they begin their journey of forever
+              </span>
+            </p>
+          </div>
         </header>
 
         {/* Ornate divider */}
         {/* Note: Replaced divider with a generic public domain ornament */}
         <div className="flex justify-center my-12">
           <Image
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Ornate_divider.svg/512px-Ornate_divider.svg.png"
+            src="/images/floral-divider.png"
             alt="Decorative divider"
             width={250}
             height={40}
@@ -51,8 +76,19 @@ export default function Home() {
         </div>
 
         {/* Main event details */}
-        <section id="wedding-details" className="bg-gradient-to-br from-white/80 to-rose-50/70 backdrop-blur-md border border-amber-200 rounded-xl p-8 md:p-10 mb-16 shadow-lg text-center relative overflow-hidden">
-           <div className="absolute top-2 right-2 text-red-700 opacity-50"><Heart size={24} /></div>
+        <section id="wedding-details" className="bg-gradient-to-br from-white/80 to-rose-50/70 backdrop-blur-md border border-amber-200 rounded-xl p-8 md:p-10 mb-16 shadow-lg text-center relative overflow-visible">
+          {/* Peeking Cat */}
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-20 h-20 z-10 transform-gpu hover:scale-110 transition-transform duration-300">
+            <Image
+              src="/images/cute-cat-peeking.png"
+              alt="Curious cat peeking"
+              width={120}
+              height={120}
+              className="object-contain"
+              priority
+            />
+          </div>
+
           <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700">The Wedding Day</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -85,52 +121,70 @@ export default function Home() {
         </section>
 
         {/* Events timeline */}
-        <section id="events" className="mb-16">
+        <section id="events" className="mb-16 px-4">
           <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-10 text-red-700 text-center">Schedule of Events</h2>
 
           <div className="relative max-w-3xl mx-auto">
-            {/* The Timeline Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-200 via-amber-300 to-amber-200 transform -translate-x-1/2 hidden md:block"></div>
+            {/* Timeline Line - Visible on both mobile and desktop */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-200 via-amber-300 to-amber-200 transform md:-translate-x-1/2"></div>
 
             {/* Timeline Items */}
-            {/* Note: Replaced local icons with placeholder icons from Iconify. Design/replace as needed. */}
             {[
-              { icon: "https://api.iconify.design/mdi:hand-heart.svg", alt: "Mehendi", title: "Mehendi Ceremony", date: "June 4, 2025 | 02:00 PM - 08:00 PM", desc: "An evening of beautiful henna, music, and celebration." },
-              { icon: "https://api.iconify.design/mdi:hands-pray.svg", alt: "Mataji Poojan", title: "Mataji Poojan", date: "June 5, 2025 | 09:00 AM - 11:00 AM", desc: "Seeking blessings from the family deity." },
-              { icon: "https://api.iconify.design/mdi:human-male-female-dance.svg", alt: "Procession", title: "Procession", date: "June 5, 2025 | 08:00 PM - 10:30 PM", desc: "A grand procession with music, dance, and joy." },
-              { icon: "https://api.iconify.design/mdi:flower-tulip.svg", alt: "Haldi", title: "Haldi Ceremony", date: "June 6, 2025 | 02:00 PM - 05:00 PM", desc: "A joyful ceremony with turmeric paste, flowers, and fun." },
-              { icon: "https://api.iconify.design/mdi:music-note.svg", alt: "Sangeet", title: "Sangeet & DJ Night", date: "June 6, 2025 | 08:00 PM - 10:30 PM", desc: "A night of music, dance performances, and celebration." },
-              { icon: "https://api.iconify.design/mdi:horse-human.svg", alt: "Baraat", title: "Baraat", date: "June 7, 2025 | 10:30 AM - 12:30 PM", desc: "The groom&apos;s arrival with music and dancing." },
-              { icon: "https://api.iconify.design/mdi:gift.svg", alt: "Mayra", title: "Mayra / Mamera", date: "June 7, 2025 | 02:00 PM - 03:00 PM", desc: "Ceremony for the maternal families." },
-              { icon: "https://api.iconify.design/mdi:food-fork-drink.svg", alt: "Reception", title: "Reception", date: "June 7, 2025 | 7:00 PM Onwards", desc: "Celebrating the newlyweds with dinner and entertainment." }, // Updated Date
+              { icon: "https://api.iconify.design/mdi:hand-heart.svg", alt: "Mehendi", title: "Mehendi Ceremony", date: "June 4, 2025", time: "02:00 PM - 08:00 PM", desc: "An evening of beautiful henna, music, and celebration." },
+              { icon: "https://api.iconify.design/mdi:hands-pray.svg", alt: "Mataji Poojan", title: "Mataji Poojan", date: "June 5, 2025", time: "09:00 AM - 11:00 AM", desc: "Seeking blessings from the family deity." },
+              { icon: "https://api.iconify.design/material-symbols:celebration.svg", alt: "Procession", title: "Procession", date: "June 5, 2025", time: "08:00 PM - 10:30 PM", desc: "A grand procession with music, dance, and joy." },
+              { icon: "https://api.iconify.design/mdi:flower-tulip.svg", alt: "Haldi", title: "Haldi Ceremony", date: "June 6, 2025", time: "02:00 PM - 05:00 PM", desc: "A joyful ceremony with turmeric paste, flowers, and fun." },
+              { icon: "https://api.iconify.design/mdi:music-note.svg", alt: "Sangeet", title: "Sangeet & DJ Night", date: "June 6, 2025", time: "08:00 PM - 10:30 PM", desc: "A night of music, dance performances, and celebration." },
+              { icon: "https://api.iconify.design/mdi:horse-human.svg", alt: "Baraat", title: "Baraat", date: "June 7, 2025", time: "10:30 AM - 12:30 PM", desc: "The groom's arrival with music and dancing." },
+              { icon: "https://api.iconify.design/mdi:gift.svg", alt: "Mayra", title: "Mayra / Mamera", date: "June 7, 2025", time: "02:00 PM - 03:00 PM", desc: "Ceremony for the maternal families." },
+              { icon: "https://api.iconify.design/mdi:food-fork-drink.svg", alt: "Reception", title: "Reception", date: "June 7, 2025", time: "7:00 PM Onwards", desc: "Celebrating the newlyweds with dinner and entertainment." },
             ].map((event, index) => (
-              <div key={index} className={`mb-12 flex md:items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} flex-col md:flex-row`}>
-                {/* Content Block */}
-                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pl-8 lg:pl-14' : 'md:pr-8 lg:pr-14'}`}>
-                  <div className="bg-white/70 backdrop-blur-sm border border-amber-100 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                    <h3 className="text-xl font-bold text-red-800 mb-2">{event.title}</h3>
-                    <p className="text-sm font-semibold text-amber-700 mb-3">{event.date}</p>
-                    <p className="text-amber-900">{event.desc}</p>
+              <div key={index} className="relative mb-12">
+                {/* Mobile Design */}
+                <div className="md:hidden flex">
+                  {/* Icon Column */}
+                  <div className="w-16 flex-shrink-0 relative">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center border-2 border-amber-300 shadow-md z-10 relative">
+                      <Image src={event.icon} alt={event.alt} width={30} height={30} className="opacity-80" />
+                    </div>
+                    {/* Connector Line */}
+                    <div className="absolute left-8 top-16 bottom-0 w-0.5 bg-amber-200"></div>
+                  </div>
+
+                  {/* Content Column */}
+                  <div className="flex-grow pl-4">
+                    <div className="bg-white/80 backdrop-blur-sm border border-amber-100 rounded-xl p-4 shadow-lg">
+                      <h3 className="text-lg font-bold text-red-800 mb-1">{event.title}</h3>
+                      <p className="text-sm font-semibold text-amber-700">{event.date}</p>
+                      <p className="text-sm text-amber-600 mb-2">{event.time}</p>
+                      <p className="text-sm text-amber-900">{event.desc}</p>
+                    </div>
                   </div>
                 </div>
 
-                {/* Icon & Connector */}
-                <div className="w-full md:w-2/12 flex justify-center items-center my-4 md:my-0 relative">
-                   {/* Connector line for small screens */}
-                   <div className="md:hidden h-8 w-0.5 bg-amber-200 absolute -top-8 left-1/2 -translate-x-1/2"></div>
-                   <div className="md:hidden h-8 w-0.5 bg-amber-200 absolute -bottom-8 left-1/2 -translate-x-1/2"></div>
-
-                  <div className="z-10 w-24 h-24 rounded-full bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center shrink-0 border-2 border-amber-300 shadow-lg">
-                    {/* Ensure the public SVG/image works well here */}
-                    <Image src={event.icon} alt={event.alt} width={55} height={55} className="opacity-80" />
+                {/* Desktop Design */}
+                <div className={`hidden md:flex items-center w-full ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
+                  <div className={`w-5/12 ${index % 2 === 0 ? 'pl-8' : 'pr-8'}`}>
+                    <div className="bg-white/80 backdrop-blur-sm border border-amber-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                      <h3 className="text-xl font-bold text-red-800 mb-2">{event.title}</h3>
+                      <div className="space-y-1 mb-3">
+                        <p className="text-sm font-semibold text-amber-700">{event.date}</p>
+                        <p className="text-sm text-amber-600">{event.time}</p>
+                      </div>
+                      <p className="text-amber-900">{event.desc}</p>
+                    </div>
                   </div>
-                   {/* Horizontal line for large screens */}
-                   <div className={`hidden md:block absolute w-full h-0.5 bg-gradient-to-r from-transparent via-amber-300 to-amber-300 ${index % 2 === 0 ? 'left-full -translate-x-full' : 'right-full translate-x-full' }`}></div>
-                   <div className={`hidden md:block absolute w-full h-0.5 bg-gradient-to-l from-transparent via-amber-300 to-amber-300 ${index % 2 === 0 ? 'left-1/2' : 'right-1/2' }`}></div>
-                </div>
 
-                {/* Spacer for alignment */}
-                <div className={`hidden md:block w-5/12 ${index % 2 === 0 ? 'pr-8 lg:pr-14' : 'pl-8 lg:pl-14'}`}></div>
+                  <div className="w-2/12 flex justify-center items-center relative">
+                    <div className="z-10 w-20 h-20 rounded-full bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center border-2 border-amber-300 shadow-lg transform transition-transform duration-300 hover:scale-110">
+                      <Image src={event.icon} alt={event.alt} width={40} height={40} className="opacity-80" />
+                    </div>
+                    {/* Horizontal connector lines */}
+                    <div className={`absolute w-1/2 h-0.5 bg-amber-300 ${index % 2 === 0 ? 'right-0' : 'left-0'}`}></div>
+                  </div>
+
+                  <div className="w-5/12"></div>
+                </div>
               </div>
             ))}
           </div>
@@ -140,7 +194,7 @@ export default function Home() {
         {/* Note: Replaced divider with a generic public domain ornament */}
         <div className="flex justify-center my-12">
            <Image
-             src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Ornate_divider.svg/512px-Ornate_divider.svg.png"
+             src="images/floral-divider.png"
              alt="Decorative divider"
              width={250}
              height={40}
@@ -279,9 +333,9 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-gradient-to-t from-amber-800 to-amber-700 text-amber-50 py-8 text-center relative mt-16">
-         {/* Note: Replaced divider with a generic public domain ornament */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-8">
-           <Image src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Vector_ornamental_divider.svg" alt="" layout="fill" objectFit="contain" className="opacity-50" aria-hidden="true" />
+        {/* Note: Replaced divider with a generic public domain ornament */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-24 rounded-full overflow-hidden">
+           <Image src="/images/cute-animal-couple-2.png" alt="" layout="fill" objectFit="contain" className="rounded-full" aria-hidden="true" />
         </div>
         <p className="mb-3 text-lg font-['Aref_Ruqaa',serif] tracking-wider">#PoojaWedsSiddharth</p>
         <p className="text-sm opacity-80">We look forward to celebrating with you!</p>
