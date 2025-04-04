@@ -13,16 +13,6 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[url('https://example.com/placeholder-lotus.svg')] bg-no-repeat bg-[length:350px_350px] bg-left-bottom opacity-10 animate-pulse-slow mix-blend-multiply"></div>
       </div>
 
-      {/* Navigation (Optional - Example) */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
-        <div className="container mx-auto px-6 py-3 flex justify-center space-x-6 font-['Aref_Ruqaa',serif] text-amber-800">
-          <Link href="#events" className="hover:text-red-700 transition-colors">Events</Link>
-          <Link href="#story" className="hover:text-red-700 transition-colors">Our Story</Link>
-          <Link href="#gallery" className="hover:text-red-700 transition-colors">Gallery</Link>
-          <Link href="#contact" className="hover:text-red-700 transition-colors">Contact</Link>
-        </div>
-      </nav>
-
       {/* Main content */}
       <main className="container mx-auto px-4 sm:px-6 py-16 max-w-5xl relative z-10">
 
@@ -287,8 +277,25 @@ export default function Home() {
         </div>
         <p className="mb-3 text-lg font-['Aref_Ruqaa',serif] tracking-wider">#PoojaWedsSiddharth</p>
         <p className="text-sm opacity-80">We look forward to celebrating with you!</p>
-        <p className="text-xs mt-4 opacity-60">&copy; {new Date().getFullYear()} Siddharth & Pooja. All rights reserved.</p>
       </footer>
+
+      {/* Sticky Bottom Navigation with Icons */}
+      <nav className="sticky bottom-0 z-50 bg-white/80 backdrop-blur-md shadow-inner py-3">
+        <div className="container mx-auto px-6 flex justify-around items-center text-amber-800">
+          <Link href="#events" className="p-2 hover:text-red-700 transition-colors rounded-full hover:bg-amber-100/50" title="Events" aria-label="Go to Events section">
+            <CalendarDays size={24} />
+          </Link>
+          <Link href="#story" className="p-2 hover:text-red-700 transition-colors rounded-full hover:bg-amber-100/50" title="Our Story" aria-label="Go to Our Story section">
+            <Heart size={24} />
+          </Link>
+          <Link href="#gallery" className="p-2 hover:text-red-700 transition-colors rounded-full hover:bg-amber-100/50" title="Gallery" aria-label="Go to Gallery section">
+            <Camera size={24} />
+          </Link>
+          <Link href="#contact" className="p-2 hover:text-red-700 transition-colors rounded-full hover:bg-amber-100/50" title="Contact" aria-label="Go to Contact section">
+            <Users size={24} />
+          </Link>
+        </div>
+      </nav>
     </div>
   );
 }
