@@ -4,17 +4,25 @@ import { Clock, MapPin, Phone, Mail, CalendarDays, Camera, Heart, Feather, Users
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen font-['Cormorant_Garamond',serif] text-amber-950 bg-gradient-to-br from-rose-50 via-amber-50 to-rose-100">
-      {/* Enhanced Animated background - Subtle adjustments */}
-      {/* Note: Replaced background images with placeholders. Find suitable public domain/CC0 seamless patterns. */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://example.com/placeholder-paisley.svg')] bg-repeat opacity-[0.07] animate-float"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[url('https://example.com/placeholder-mandala.svg')] bg-no-repeat bg-[length:400px_400px] bg-right-top opacity-15 animate-spin-slow mix-blend-multiply"></div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[url('https://example.com/placeholder-lotus.svg')] bg-no-repeat bg-[length:350px_350px] bg-left-bottom opacity-10 animate-pulse-slow mix-blend-multiply"></div>
+    <div className="relative min-h-screen font-['Cormorant_Garamond',serif] text-amber-950">
+      {/* Background image and overlays */}
+      <div className="fixed inset-0 -z-10">
+        {/* Main background image */}
+        <Image
+          src="/images/western-dress-photo.jpeg"
+          alt="Background"
+          fill
+          priority
+          className="object-cover object-top"
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-rose-50/90 via-amber-50/90 to-rose-100/90"></div>
+        {/* Optional texture overlay */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/rice-paper.png')] bg-repeat opacity-20"></div>
       </div>
 
       {/* Main content */}
-      <main className="container mx-auto px-4 sm:px-6 py-16 max-w-5xl relative z-10">
+      <main className="container mx-auto px-4 sm:px-6 py-16 max-w-5xl relative">
 
         {/* Header */}
         <header className="text-center mb-16 relative pt-10 pb-8">
@@ -149,7 +157,7 @@ export default function Home() {
             <div className="w-full lg:w-2/5">
               <div className="rounded-lg overflow-hidden border-4 border-amber-100 shadow-md aspect-[4/5] relative group">
                  {/* Note: Replaced couple photo with a placeholder from Pexels */}
-                <Image src="https://images.pexels.com/photos/1024989/pexels-photo-1024989.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&dpr=1" alt="Siddharth and Pooja Placeholder" layout="fill" objectFit="cover" className="transition-transform duration-500 group-hover:scale-105" />
+                <Image src="/images/western-dress-photo.jpeg" alt="Siddharth and Pooja Placeholder" layout="fill" objectFit="cover" className="transition-transform duration-500 group-hover:scale-105" />
               </div>
             </div>
 
