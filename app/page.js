@@ -217,14 +217,13 @@ export default function Home() {
 
             <div className="w-full lg:w-3/5 text-lg text-amber-900 space-y-5 leading-relaxed">
               <p>
-                Our journey began amidst the bustling halls of college, where Siddharth navigated the complexities of engineering and Pooja shaped worlds through architecture.
-                What started with shared lunch breaks and easy laughter soon blossomed into something deeper, a connection woven with shared dreams and mutual admiration.
+                Our story began in the corridors of school when Pooja transferred to our class in 8th standard. Little did we know that sharing the same school, participating in school activities, and growing up together through our teenage years would one day lead to something so beautiful.
               </p>
               <p>
-                Five years have flown by, filled with growth, learning, and countless cherished memories. Now, standing on the threshold of a new chapter, we&apos;re filled with excitement and gratitude.
+                Life took an unexpected but delightful turn when our families approached us with the prospect of an arranged marriage. It was a pleasant surprise to discover that our childhood schoolmate would become our life partner! While it took some time to process this wonderful coincidence, we gradually discovered new dimensions to each other&apos;s personalities that we had never noticed before.
               </p>
               <p className="font-semibold text-red-800 italic">
-                We can&apos;t wait to celebrate this milestone with you, our beloved family and friends, who have supported us along the way.
+                From being schoolmates to soulmates, our journey has been uniquely beautiful. We&apos;re excited to begin this new chapter of our lives with the blessings of our families who helped write this destined love story.
               </p>
             </div>
           </div>
