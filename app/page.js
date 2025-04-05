@@ -1,8 +1,51 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, MapPin, Phone, Mail, CalendarDays, Camera, Heart, Feather, Users, Hotel } from 'lucide-react'; // Example icons, you might need to install lucide-react
+import { useState, useEffect } from 'react';
+import { Clock, MapPin, Phone, Mail, CalendarDays, Camera, Heart, Feather, Users, Hotel, Globe } from 'lucide-react';
+import { translations } from './translations';
 
 export default function Home() {
+
+  const [currentLang, setCurrentLang] = useState('en');
+
+  // Function to toggle language
+  const toggleLanguage = () => {
+    setCurrentLang(currentLang === 'en' ? 'hi' : 'en');
+  };
+
+  // Get current translations
+  const t = translations[currentLang];
+
+  // Add new state variables for countdown
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  // Add useEffect for countdown calculation
+  useEffect(() => {
+    const weddingDate = new Date('2025-06-07T09:00:00');
+
+    const timer = setInterval(() => {
+      const now = new Date();
+      const difference = weddingDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="relative min-h-screen font-['Cormorant_Garamond',serif] text-amber-950">
       {/* Background image and overlays */}
@@ -73,6 +116,50 @@ export default function Home() {
             height={40}
             className="opacity-80"
           />
+        </div>
+
+        {/* Add countdown timer after the header section and before the main event details */}
+        <div className="mb-16 text-center">
+          <h3 className="text-2xl text-amber-800 mb-6 font-light italic">Counting down to our special day</h3>
+          <div className="inline-flex gap-4 md:gap-8 bg-gradient-to-br from-white/90 to-rose-50/90 backdrop-blur-sm border border-amber-200 rounded-2xl p-8 md:p-10 shadow-lg">
+            {[
+              { label: 'Days', value: timeLeft.days },
+              { label: 'Hours', value: timeLeft.hours },
+              { label: 'Minutes', value: timeLeft.minutes },
+              { label: 'Seconds', value: timeLeft.seconds }
+            ].map((item, index) => (
+              <div key={item.label} className="relative px-4 md:px-6">
+                {/* Separator between items */}
+                {index !== 0 && (
+                  <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4">
+                    <span className="block w-1 h-1 bg-amber-300 rounded-full mb-1"></span>
+                    <span className="block w-1 h-1 bg-amber-300 rounded-full"></span>
+                  </div>
+                )}
+                {/* Counter item */}
+                <div className="flex flex-col items-center">
+                  <span className="text-3xl md:text-5xl font-['Aref_Ruqaa',serif] text-red-800 mb-2">
+                    {String(item.value).padStart(2, '0')}
+                  </span>
+                  <span className="text-xs md:text-sm text-amber-700 font-light tracking-wider uppercase">
+                    {item.label}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Decorative elements */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-amber-300"></div>
+            <Image
+              src="/images/small-flower.png"
+              alt=""
+              width={40}
+              height={40}
+              className="opacity-60"
+            />
+            <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-amber-300"></div>
+          </div>
         </div>
 
         {/* Main event details */}
@@ -355,6 +442,14 @@ export default function Home() {
           <Link href="#contact" className="p-2 hover:text-red-700 transition-colors rounded-full hover:bg-amber-100/50" title="Contact" aria-label="Go to Contact section">
             <Users size={24} />
           </Link>
+          {/* <button 
+            onClick={toggleLanguage}
+            className="p-2 hover:text-red-700 transition-colors rounded-full hover:bg-amber-100/50 flex items-center gap-1"
+            title="Switch Language"
+          >
+            <Globe size={24} />
+            <span className="text-sm font-semibold">{currentLang.toUpperCase()}</span>
+          </button> */}
         </div>
       </nav>
     </div>
