@@ -15,7 +15,8 @@
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "touch-cli": "^0.0.1"
+    "touch-cli": "^0.0.1",
+    "yet-another-react-lightbox": "^3.22.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

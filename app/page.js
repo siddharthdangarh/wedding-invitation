@@ -2,8 +2,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from 'react';
+
+// Icon imports
 import { Clock, MapPin, Phone, Mail, CalendarDays, Camera, Heart, Feather, Users, Hotel, Globe } from 'lucide-react';
 
+// Gallery functionality imports
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+
+// Porjcet files import
 import { fortunes } from './constants/fortunes';
 import { translations } from './translations';
 
@@ -66,13 +76,38 @@ export default function Home() {
     }
   };
 
+  //////////// GALLERY /////////////
+  // Add state for lightbox
+  const [isOpen, setIsOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
+
+  // Gallery images array
+  const galleryImages = [
+    "/images/couple/udaipur.jpeg",
+    "/images/couple/waves.jpeg",
+    "https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+    "https://images.pexels.com/photos/13129951/pexels-photo-13129951.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+    "https://images.pexels.com/photos/3014815/pexels-photo-3014815.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+    "https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+    "https://images.pexels.com/photos/1444416/pexels-photo-1444416.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+    "https://images.pexels.com/photos/916344/pexels-photo-916344.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+  ];
+
+  // Format images for lightbox
+  const slides = galleryImages.map((src) => ({
+    src: src,
+    width: 3840,
+    height: 2560,
+    alt: "Gallery Image"
+  }));
+
   return (
     <div className="relative min-h-screen font-['Cormorant_Garamond',serif] text-amber-950">
       {/* Background image and overlays */}
       <div className="fixed inset-0 -z-10">
         {/* Main background image */}
         <Image
-          src="/images/western-dress-photo.jpeg"
+          src="/images/couple/western-dress-photo-animated.jpeg"
           alt="Background"
           fill
           priority
@@ -318,7 +353,7 @@ export default function Home() {
             <div className="w-full lg:w-2/5">
               <div className="rounded-lg overflow-hidden border-4 border-amber-100 shadow-md aspect-[4/5] relative group">
                  {/* Note: Replaced couple photo with a placeholder from Pexels */}
-                <Image src="/images/western-dress-photo.jpeg" alt="Siddharth and Pooja Placeholder" layout="fill" objectFit="cover" className="transition-transform duration-500 group-hover:scale-105" />
+                <Image src="/images/couple/western-dress-photo.jpeg" alt="Siddharth and Pooja Placeholder" layout="fill" objectFit="cover" className="transition-transform duration-500 group-hover:scale-105" />
               </div>
             </div>
 
@@ -340,34 +375,63 @@ export default function Home() {
         <section id="gallery" className="mb-16">
           <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700 text-center">Moments We Cherish</h2>
 
-           {/* Note: Replaced gallery images with placeholders from Pexels */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {[
-                "https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-                "https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-                "https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-                "https://images.pexels.com/photos/13129951/pexels-photo-13129951.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-                "https://images.pexels.com/photos/3014815/pexels-photo-3014815.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-                "https://images.pexels.com/photos/1488319/pexels-photo-1488319.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-                "https://images.pexels.com/photos/1444416/pexels-photo-1444416.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-                "https://images.pexels.com/photos/916344/pexels-photo-916344.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-            ].map((src, index) => (
-              <div key={index} className="aspect-square overflow-hidden rounded-lg border-2 border-amber-100/50 shadow-sm group relative cursor-pointer hover:shadow-xl transition-all duration-300">
+            {galleryImages.map((src, index) => (
+              <div 
+                key={index} 
+                className="aspect-square overflow-hidden rounded-lg border-2 border-amber-100/50 shadow-sm group relative cursor-pointer hover:shadow-xl transition-all duration-300"
+                onClick={() => {
+                  setPhotoIndex(index);
+                  setIsOpen(true);
+                }}
+              >
                 <Image
                   src={src}
-                  alt={`Gallery image ${index + 1} placeholder`}
+                  alt={`Gallery image ${index + 1}`}
                   layout="fill"
                   objectFit="cover"
                   className="transition-transform duration-500 group-hover:scale-110"
                 />
-                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                   <Camera size={32} className="text-white/80" />
-                 </div>
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <Camera size={32} className="text-white/80" />
+                </div>
               </div>
             ))}
           </div>
-           {/* Note: Add a lightbox library for a better gallery experience */}
-           <p className="text-center mt-6 text-sm text-amber-700 italic">Click to view (Functionality requires a gallery library)</p>
+
+          {/* Lightbox component */}
+          <Lightbox
+            open={isOpen}
+            close={() => setIsOpen(false)}
+            index={photoIndex}
+            slides={slides}
+            plugins={[Zoom, Thumbnails]}
+            animation={{ fade: 300 }}
+            thumbnails={{
+              position: "bottom",
+              width: 120,
+              height: 80,
+              border: 2,
+              borderRadius: 4,
+              padding: 4,
+              gap: 16,
+            }}
+            zoom={{
+              maxZoomPixelRatio: 3,
+              zoomInMultiplier: 2,
+              doubleTapDelay: 300,
+            }}
+            carousel={{
+              finite: true,
+              preload: 2,
+              padding: { top: 20, bottom: 20 },
+            }}
+            render={{
+              iconPrev: () => <span className="text-white">←</span>,
+              iconNext: () => <span className="text-white">→</span>,
+              iconClose: () => <span className="text-white">×</span>,
+            }}
+          />
         </section>
 
         {/* Accommodation info */}
