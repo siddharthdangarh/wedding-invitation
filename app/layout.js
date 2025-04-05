@@ -15,8 +15,18 @@ export const metadata = {
   title: "Wedding Invitation",
   description: "Siddharth & Pooja's Wedding Invitation",
   icons: {
-    icon: '/images/favicon.ico',
-  }
+    icon: "/images/favicon.ico",
+  },
+  openGraph: {
+    title: "Wedding Invitation",
+    description: "Siddharth & Pooja's Wedding Invitation",
+    images: [{
+      url: "/images/couple/preview.jpeg",
+      width: 1200,
+      height: 630,
+      alt: "Wedding Invitation Preview"
+    }]
+  },
 };
 
 export default function RootLayout({ children }) {
