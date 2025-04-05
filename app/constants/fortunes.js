@@ -46,7 +46,7 @@ export const fortunes = [
   "Your heartfelt wishes for the couple will create positive karma in your own love life ❤️",
   "The traditions you witness today will help you understand a family mystery 🔮",
   "A moment of quiet reflection during the ceremony will reveal your next big move 🌙",
-  "The love you witness today will help you recognize true love when it appears in your life 💫"
+  "The love you witness today will help you recognize true love when it appears in your life 💫",
 
   // Spiritual & Personal (continuing)
   "The wedding rings exchanged today remind you of a promise you need to keep to yourself 💍",

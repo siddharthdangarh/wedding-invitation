@@ -21,7 +21,7 @@ export const metadata = {
     title: "Wedding Invitation",
     description: "Siddharth & Pooja's Wedding Invitation",
     images: [{
-      url: "/images/couple/preview.jpeg",
+      url: "https://wedding.siddharthdangarh.com/images/couple/preview.jpeg",
       width: 1200,
       height: 630,
       alt: "Wedding Invitation Preview"
