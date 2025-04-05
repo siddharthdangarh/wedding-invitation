@@ -279,14 +279,15 @@ export default function HomePage() {
 
             {/* Timeline Items */}
             {[
-              { icon: "https://api.iconify.design/mdi:hand-heart.svg", alt: "Mehendi", title: "Mehendi Ceremony", date: "June 4, 2025", time: "02:00 PM - 08:00 PM", desc: "An evening of beautiful henna, music, and celebration." },
-              { icon: "https://api.iconify.design/mdi:hands-pray.svg", alt: "Mataji Poojan", title: "Mataji Poojan", date: "June 5, 2025", time: "09:00 AM - 11:00 AM", desc: "Seeking blessings from the family deity." },
-              { icon: "https://api.iconify.design/material-symbols:celebration.svg", alt: "Procession", title: "Procession", date: "June 5, 2025", time: "08:00 PM - 10:30 PM", desc: "A grand procession with music, dance, and joy." },
-              { icon: "https://api.iconify.design/mdi:flower-tulip.svg", alt: "Haldi", title: "Haldi Ceremony", date: "June 6, 2025", time: "02:00 PM - 05:00 PM", desc: "A joyful ceremony with turmeric paste, flowers, and fun." },
-              { icon: "https://api.iconify.design/mdi:music-note.svg", alt: "Sangeet", title: "Sangeet & DJ Night", date: "June 6, 2025", time: "08:00 PM - 10:30 PM", desc: "A night of music, dance performances, and celebration." },
-              { icon: "https://api.iconify.design/mdi:horse-human.svg", alt: "Baraat", title: "Baraat", date: "June 7, 2025", time: "10:30 AM - 12:30 PM", desc: "The groom's arrival with music and dancing." },
-              { icon: "https://api.iconify.design/mdi:gift.svg", alt: "Mayra", title: "Mayra / Mamera", date: "June 7, 2025", time: "02:00 PM - 03:00 PM", desc: "Ceremony for the maternal families." },
-              { icon: "https://api.iconify.design/mdi:food-fork-drink.svg", alt: "Reception", title: "Reception", date: "June 7, 2025", time: "7:00 PM Onwards", desc: "Celebrating the newlyweds with dinner and entertainment." },
+              { icon: "https://api.iconify.design/mdi:hands-pray.svg", alt: "Mataji Poojan", title: "Mataji Poojan", date: "June 5, 2025", time: "09:00 AM", desc: "Seeking blessings from the family deity." },
+              { icon: "https://api.iconify.design/material-symbols:celebration.svg", alt: "Procession", title: "Procession", date: "June 5, 2025", time: "08:00 PM", desc: "A grand procession with music, dance, and joy." },
+              { icon: "https://api.iconify.design/mdi:flower-tulip.svg", alt: "Haldi", title: "Haldi Ceremony", date: "June 6, 2025", time: "02:00 PM", desc: "A joyful ceremony with turmeric paste, flowers, and fun." },
+              { icon: "https://api.iconify.design/mdi:music-note.svg", alt: "Sangeet", title: "Sangeet & DJ Night", date: "June 6, 2025", time: "08:00 PM", desc: "A night of music, dance performances, and celebration." },
+              { icon: "https://api.iconify.design/mdi:horse-human.svg", alt: "Baraat", title: "Baraat", date: "June 7, 2025", time: "09:30 AM", desc: "The groom's arrival with music and dancing." },
+              { icon: "https://api.iconify.design/mdi:gift.svg", alt: "Mayra", title: "Mayra / Mamera", date: "June 7, 2025", time: "11:00 AM", desc: "Ceremony for the maternal families." },
+              { icon: "https://api.iconify.design/mdi:face-man-shimmer.svg", alt: "Tilak Chidi", title: "Tilak Chidi", date: "June 7, 2025", time: "02:00 PM", desc: "A traditional ceremony where tilak is applied to the groom with blessings and gifts" },
+              { icon: "https://api.iconify.design/mdi:food-fork-drink.svg", alt: "Reception", title: "Reception", date: "June 7, 2025", time: "7:00 PM", desc: "Celebrating the newlyweds with dinner and entertainment." },
+              { icon: "https://api.iconify.design/mdi:flower-outline.svg", alt: "Varmala", title: "Varmala", date: "June 7, 2025", time: "09:00 PM", desc: "The beautiful exchange of garlands between bride and groom." },
             ].map((event, index) => (
               <div key={index} className="relative mb-12">
                 {/* Mobile Design */}
