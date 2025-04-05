@@ -441,6 +441,50 @@ export default function HomePage() {
           />
         </section>
 
+        {/* Photo Upload Section */}
+        <section className="mb-16 bg-white/70 backdrop-blur-sm border border-amber-200 rounded-xl p-8 md:p-10 shadow-lg text-center">
+          <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700">Share Your Moments</h2>
+          
+          <div className="max-w-2xl mx-auto space-y-6">
+            <p className="text-lg text-amber-900">
+              Help us capture every beautiful moment! Upload your photos from our wedding celebrations to our shared album.
+            </p>
+            
+            <div className="bg-white/80 backdrop-blur-sm border border-amber-100 rounded-lg p-6 shadow-md">
+              <Camera size={32} className="text-red-700 mx-auto mb-4" />
+              <p className="text-amber-800 mb-4">
+                Click below to access our shared Google Drive folder and upload your photos
+              </p>
+              
+              <a 
+                href="https://drive.google.com/drive/folders/1HUZ96oIUOrNRd07_q3sKTAAgi4SehKjP" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-red-700 to-red-800 text-white px-6 py-3 rounded-lg hover:from-red-800 hover:to-red-900 transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                <span>Upload Photos</span>
+                <svg 
+                  className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                  />
+                </svg>
+              </a>
+            </div>
+            
+            <p className="text-sm text-amber-700 italic">
+              Your shared moments will help us relive these precious memories for years to come.
+            </p>
+          </div>
+        </section>
+
         {/* Accommodation info */}
         <section id="accommodation" className="bg-white/70 backdrop-blur-sm border border-amber-200 rounded-xl p-8 md:p-10 mb-16 shadow-lg">
           <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700 text-center">Guest Accommodation</h2>

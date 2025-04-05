@@ -14,6 +14,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Wedding Invitation",
   description: "Siddharth & Pooja's Wedding Invitation",
+  icons: {
+    icon: '/images/favicon.ico',
+  }
 };
 
 export default function RootLayout({ children }) {
