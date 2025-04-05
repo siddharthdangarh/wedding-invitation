@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from 'react';
 
 // Icon imports
-import { Clock, MapPin, Phone, Mail, CalendarDays, Camera, Heart, Feather, Users, Hotel, Globe } from 'lucide-react';
+import { Clock, MapPin, Phone, Mail, CalendarDays, Camera, Heart, Feather, Users, Hotel, Globe, Home } from 'lucide-react';
 
 // Gallery functionality imports
 import Lightbox from "yet-another-react-lightbox";
@@ -17,7 +17,7 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { fortunes } from './constants/fortunes';
 import { translations } from './translations';
 
-export default function Home() {
+export default function HomePage() {
 
   ///////////// LANGUAGE SWITCHER /////////////
   const [currentLang, setCurrentLang] = useState('en');
@@ -85,12 +85,12 @@ export default function Home() {
   const galleryImages = [
     "/images/couple/udaipur.jpeg",
     "/images/couple/waves.jpeg",
-    "https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-    "https://images.pexels.com/photos/13129951/pexels-photo-13129951.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-    "https://images.pexels.com/photos/3014815/pexels-photo-3014815.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-    "https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-    "https://images.pexels.com/photos/1444416/pexels-photo-1444416.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
-    "https://images.pexels.com/photos/916344/pexels-photo-916344.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
+    "/images/couple/udaipur-2.jpeg",
+    "/images/couple/holding-hands.jpeg",
+    "/images/couple/sagai-candid.jpeg",
+    "/images/couple/sangeet-animated.jpeg",
+    "/images/couple/haldi-animated.jpeg",
+    "/images/couple/holi-animated.jpeg",
   ];
 
   // Format images for lightbox
@@ -256,8 +256,15 @@ export default function Home() {
                 Kanha Manglik Road<br/>
                 Behind Krashi Upaj Mandi, Shamgarh, MP
               </address>
-               {/* Optional: Add a map link */}
-               {/* <a href="#" className="inline-block mt-2 text-sm text-red-700 underline hover:text-red-900 transition-colors">View Map</a> */}
+              <a 
+                href="https://maps.app.goo.gl/mnMzuV4KtFkzPMKk6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-2 text-sm text-red-700 hover:text-red-900 transition-colors group"
+              >
+                <span className="underline">View on Google Maps</span>
+                <Globe size={16} className="transform group-hover:rotate-12 transition-transform" />
+              </a>
             </div>
           </div>
         </section>
@@ -442,19 +449,46 @@ export default function Home() {
             For our cherished guests travelling from afar, we&apos;ve arranged a special stay at our home and nearby hotels.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { name: "Sanghvi Palace", distance: "0.1 km from venue", phone: "+91 11111-11111", tel: "+911111111111" },
-              { name: "Tanvi Palace", distance: "2 km from venue", phone: "+91 11111-11111", tel: "+911111111111" },
-            ].map((hotel) => (
-            <div key={hotel.name} className="border border-amber-100 rounded-lg p-5 shadow-sm bg-white/50 hover:bg-white/80 transition-colors duration-300 flex flex-col items-center text-center">
-               <Hotel size={24} className="text-red-700 mb-3" />
-              <h3 className="text-xl font-bold text-amber-950">{hotel.name}</h3>
-              <p className="text-sm text-amber-700 mb-3">{hotel.distance}</p>
-               <div className="flex items-center gap-2">
-                 <Phone size={16} className="text-red-700" />
-                 <a href={`tel:${hotel.tel}`} className="text-red-700 underline hover:text-red-900 transition-colors">{hotel.phone}</a>
-               </div>
+              { 
+                name: "Our Home", 
+                distance: "0.2 km from venue",
+                isHome: true,
+                mapLink: "https://maps.app.goo.gl/qwFkGfVKhSp7p5Rg6"
+              },
+              { 
+                name: "Sanghvi Palace", 
+                distance: "0.1 km from venue",
+                mapLink: "https://maps.app.goo.gl/C5tuDjr8k96WDrKY8"
+              },
+              { 
+                name: "Tanvi Palace", 
+                distance: "2 km from venue",
+                mapLink: "https://maps.app.goo.gl/NGZL9A2t1fkaAnFS6"
+              },
+            ].map((place) => (
+            <div key={place.name} className="border border-amber-100 rounded-lg p-5 shadow-sm bg-white/50 hover:bg-white/80 transition-colors duration-300 flex flex-col items-center text-center">
+               {place.isHome ? (
+                 <Home size={24} className="text-red-700 mb-3" />
+               ) : (
+                 <Hotel size={24} className="text-red-700 mb-3" />
+               )}
+              <h3 className="text-xl font-bold text-amber-950">{place.name}</h3>
+              <p className="text-sm text-amber-700 mb-3">{place.distance}</p>
+              <div className="flex flex-col items-center gap-2">
+                {place.mapLink && (
+                  <a 
+                    href={place.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-1 text-sm text-red-700 hover:text-red-900 transition-colors group"
+                  >
+                    <span className="underline">View on Maps</span>
+                    <Globe size={14} className="transform group-hover:rotate-12 transition-transform" />
+                  </a>
+                )}
+              </div>
             </div>
             ))}
           </div>
@@ -468,36 +502,15 @@ export default function Home() {
             <div className="text-center border border-amber-100 rounded-lg p-6 shadow-sm bg-white/50">
                <Users size={24} className="text-red-700 mb-3 mx-auto" />
               <h3 className="text-xl font-bold mb-3 text-amber-950">Bride&apos;s Family</h3>
-              <p className="text-lg">Mr. & Mrs. Gupta</p>
-              <div className="mt-3 space-y-1">
-                <p className="flex items-center justify-center gap-2">
-                  <Phone size={16} className="text-red-700"/>
-                  <a href="tel:+911111111111" className="text-red-700 underline hover:text-red-900 transition-colors">+91 11111-11111</a>
-                </p>
-                <p className="flex items-center justify-center gap-2">
-                  <Mail size={16} className="text-red-700"/>
-                  <a href="mailto:wedding@gupta.com" className="text-red-700 underline hover:text-red-900 transition-colors">wedding@gupta.com</a>
-                </p>
-              </div>
+              <p className="text-lg">Mr. Manoj & Mrs. Sunita Gupta</p>
             </div>
 
             <div className="text-center border border-amber-100 rounded-lg p-6 shadow-sm bg-white/50">
                <Users size={24} className="text-red-700 mb-3 mx-auto" />
               <h3 className="text-xl font-bold mb-3 text-amber-950">Groom&apos;s Family</h3>
-              <p className="text-lg">Mr. & Mrs. Dangarh</p>
-              <div className="mt-3 space-y-1">
-                <p className="flex items-center justify-center gap-2">
-                  <Phone size={16} className="text-red-700"/>
-                  <a href="tel:+911111111111" className="text-red-700 underline hover:text-red-900 transition-colors">+91 11111-11111</a>
-                </p>
-                <p className="flex items-center justify-center gap-2">
-                  <Mail size={16} className="text-red-700"/>
-                  <a href="mailto:wedding@dangarh.com" className="text-red-700 underline hover:text-red-900 transition-colors">wedding@dangarh.com</a>
-                </p>
-              </div>
+              <p className="text-lg">Mr. Jagdish & Mrs. Sunita Dangarh</p>
             </div>
           </div>
-           <p className="text-center mt-8 text-amber-800">For any queries, please feel free to reach out.</p>
         </section>
 
         {/* Fortune Cookie Section */}
