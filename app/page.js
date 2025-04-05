@@ -139,29 +139,29 @@ export default function Home() {
         </div>
 
         {/* Add countdown timer after the header section and before the main event details */}
-        <div className="mb-16 text-center">
+        <div className="mb-16 text-center px-4">
           <h3 className="text-2xl text-amber-800 mb-6 font-light italic">Counting down to our special day</h3>
-          <div className="inline-flex gap-4 md:gap-8 bg-gradient-to-br from-white/90 to-rose-50/90 backdrop-blur-sm border border-amber-200 rounded-2xl p-8 md:p-10 shadow-lg">
+          <div className="flex flex-wrap justify-center gap-4 bg-gradient-to-br from-white/90 to-rose-50/90 backdrop-blur-sm border border-amber-200 rounded-2xl p-4 md:p-8 shadow-lg">
             {[
               { label: 'Days', value: timeLeft.days },
               { label: 'Hours', value: timeLeft.hours },
               { label: 'Minutes', value: timeLeft.minutes },
               { label: 'Seconds', value: timeLeft.seconds }
             ].map((item, index) => (
-              <div key={item.label} className="relative px-4 md:px-6">
+              <div key={item.label} className="relative px-3 md:px-6">
                 {/* Separator between items */}
                 {index !== 0 && (
                   <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4">
-                    <span className="block w-1 h-1 bg-amber-300 rounded-full mb-1"></span>
-                    <span className="block w-1 h-1 bg-amber-300 rounded-full"></span>
+                    <span className="hidden md:block w-1 h-1 bg-amber-300 rounded-full mb-1"></span>
+                    <span className="hidden md:block w-1 h-1 bg-amber-300 rounded-full"></span>
                   </div>
                 )}
                 {/* Counter item */}
-                <div className="flex flex-col items-center">
-                  <span className="text-3xl md:text-5xl font-['Aref_Ruqaa',serif] text-red-800 mb-2">
+                <div className="flex flex-col items-center min-w-[70px] md:min-w-[100px]">
+                  <span className="text-2xl md:text-5xl font-['Aref_Ruqaa',serif] text-red-800 mb-1 md:mb-2">
                     {String(item.value).padStart(2, '0')}
                   </span>
-                  <span className="text-xs md:text-sm text-amber-700 font-light tracking-wider uppercase">
+                  <span className="text-[10px] md:text-sm text-amber-700 font-light tracking-wider uppercase">
                     {item.label}
                   </span>
                 </div>
@@ -169,16 +169,16 @@ export default function Home() {
             ))}
           </div>
           {/* Decorative elements */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-amber-300"></div>
+          <div className="flex items-center justify-center gap-2 md:gap-4 mt-6">
+            <div className="h-[1px] w-12 md:w-16 bg-gradient-to-r from-transparent to-amber-300"></div>
             <Image
               src="/images/small-flower.png"
               alt=""
-              width={40}
-              height={40}
-              className="opacity-60"
+              width={30}
+              height={30}
+              className="opacity-60 md:w-[40px] md:h-[40px]"
             />
-            <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-amber-300"></div>
+            <div className="h-[1px] w-12 md:w-16 bg-gradient-to-l from-transparent to-amber-300"></div>
           </div>
         </div>
 
