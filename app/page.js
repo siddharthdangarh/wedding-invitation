@@ -3,10 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from 'react';
 import { Clock, MapPin, Phone, Mail, CalendarDays, Camera, Heart, Feather, Users, Hotel, Globe } from 'lucide-react';
+
+import { fortunes } from './constants/fortunes';
 import { translations } from './translations';
 
 export default function Home() {
 
+  ///////////// LANGUAGE SWITCHER /////////////
   const [currentLang, setCurrentLang] = useState('en');
 
   // Function to toggle language
@@ -17,6 +20,7 @@ export default function Home() {
   // Get current translations
   const t = translations[currentLang];
 
+  ///////////// COUNTDOWN /////////////
   // Add new state variables for countdown
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -45,6 +49,22 @@ export default function Home() {
 
     return () => clearInterval(timer);
   }, []);
+
+  //////////// RANDOM FORTUNE /////////////
+  // Add new state for fortune cookie
+  const [showFortune, setShowFortune] = useState(false);
+  const [currentFortune, setCurrentFortune] = useState('');
+
+  // Add function to get random fortune
+  const getRandomFortune = () => {
+    if (fortunes.length > 0) {
+      const randomIndex = Math.floor(Math.random() * fortunes.length);
+      setCurrentFortune(fortunes[randomIndex]);
+      setShowFortune(true);
+      // Auto-hide fortune after longer duration to account for animations
+      setTimeout(() => setShowFortune(false), 8000);
+    }
+  };
 
   return (
     <div className="relative min-h-screen font-['Cormorant_Garamond',serif] text-amber-950">
@@ -355,7 +375,7 @@ export default function Home() {
           <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700 text-center">Guest Accommodation</h2>
 
           <p className="text-lg text-center text-amber-900 mb-8">
-            For our cherished guests travelling from afar, we&apos;ve arranged special rates at nearby hotels. Please mention our wedding when booking.
+            For our cherished guests travelling from afar, we&apos;ve arranged a special stay at our home and nearby hotels.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
@@ -415,6 +435,62 @@ export default function Home() {
           </div>
            <p className="text-center mt-8 text-amber-800">For any queries, please feel free to reach out.</p>
         </section>
+
+        {/* Fortune Cookie Section */}
+        <section id="fortune" className="bg-white/70 backdrop-blur-sm border border-amber-200 rounded-xl p-8 md:p-10 shadow-lg text-center">
+        <h2 className="font-['Aref_Ruqaa',serif] text-3xl md:text-4xl mb-8 text-red-700">Wedding Fortune Cookie</h2>
+        
+        <div className="max-w-2xl mx-auto">
+          <p className="text-amber-800 mb-8">Click the fortune cookie to reveal your destiny at our wedding!</p>
+          
+          <div className="relative min-h-[200px] flex flex-col items-center">
+            <button
+              onClick={getRandomFortune}
+              className={`bg-gradient-to-br from-amber-50 to-amber-100 hover:from-amber-100 hover:to-amber-200 
+                border-2 border-amber-300 rounded-full p-6 shadow-lg hover:shadow-xl 
+                transition-all duration-500 transform hover:scale-105 
+                ${showFortune ? 'scale-90 rotate-[360deg]' : ''}`}
+              title="Get a Wedding Fortune"
+              disabled={showFortune}
+            >
+              <Image
+                src="/images/fortune-cookie.png"
+                alt="Fortune Cookie"
+                width={48}
+                height={48}
+                className="opacity-80"
+              />
+            </button>
+
+            {showFortune && (
+              <div className="w-full mt-8">
+                {/* Sparkles */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <div className="animate-float-up-left absolute top-1/2 left-1/4 text-amber-400">✨</div>
+                  <div className="animate-float-up-right absolute top-1/2 right-1/4 text-amber-400">✨</div>
+                  <div className="animate-float-down absolute bottom-0 left-1/3 text-amber-400">✨</div>
+                </div>
+
+                {/* Fortune Message */}
+                <div className="relative">
+                  <div className="animate-fortune-reveal bg-amber-50/90 backdrop-blur-sm border-2 border-amber-200 
+                    rounded-lg p-6 shadow-lg max-w-md mx-auto overflow-hidden">
+                    {/* Decorative corners */}
+                    <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-red-700/30 rounded-tl-lg"></div>
+                    <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-red-700/30 rounded-tr-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-red-700/30 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-red-700/30 rounded-br-lg"></div>
+                    
+                    <p className="text-amber-900 text-xl font-light italic animate-fortune-text">
+                      {currentFortune}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
       </main>
 
       {/* Footer */}
