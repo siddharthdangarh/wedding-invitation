@@ -547,13 +547,13 @@ export default function HomePage() {
             <div className="text-center border border-amber-100 rounded-lg p-6 shadow-sm bg-white/50">
                <Users size={24} className="text-red-700 mb-3 mx-auto" />
               <h3 className="text-xl font-bold mb-3 text-amber-950">Bride&apos;s Family</h3>
-              <p className="text-lg">Mr. Manoj & Mrs. Sunita Gupta</p>
+              <p className="text-lg">Mrs. Sunita & Mr. Manoj Gupta</p>
             </div>
 
             <div className="text-center border border-amber-100 rounded-lg p-6 shadow-sm bg-white/50">
                <Users size={24} className="text-red-700 mb-3 mx-auto" />
               <h3 className="text-xl font-bold mb-3 text-amber-950">Groom&apos;s Family</h3>
-              <p className="text-lg">Mr. Jagdish & Mrs. Sunita Dangarh</p>
+              <p className="text-lg">Mrs. Sunita & Mr. Jagdish Dangarh</p>
             </div>
           </div>
         </section>
